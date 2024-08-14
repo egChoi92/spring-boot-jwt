@@ -1,0 +1,27 @@
+spring:
+
+  # h2 DB? ????.
+  h2:
+    console:
+      enabled: true
+
+  # ???? ???? ????.
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      # create-drop: SessionFactory? ??? ? Drop, Create, Alter? ?? ??? ? Drop? ????.
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+
+logging:
+  level:
+    com.slivernine: DEBUG

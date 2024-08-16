@@ -21,8 +21,8 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long memberId;
 
-    @Column(name = "name", length = 50, unique = true)
-    private String name;
+    @Column(name = "username", length = 50, unique = true)
+    private String username;
 
     @Column(name = "password", length = 100)
     private String password;

@@ -30,7 +30,7 @@ public class JwtFilter extends GenericFilterBean {
     }
 
     // GenericFilterBean의 doFilter 메소드를 오버라이드
-    // JWT 토큰의 인증 정보를 현재 실행 중인 Security Context에 저장하는 역할 수행
+    // JWT의 인증 정보를 현재 실행 중인 Security Context에 저장하는 역할 수행
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
@@ -46,7 +46,7 @@ public class JwtFilter extends GenericFilterBean {
             SecurityContextHolder.getContext().setAuthentication(authentication);
             logger.debug("Security Context에 '{}' 인증 정보를 저장했습니다. URI: {}", authentication.getName(), requestURI);
         } else {
-            logger.debug("유효한 JWT 토큰이 없습니다. URI: {}", requestURI);
+            logger.debug("유효한 JWT이 없습니다. URI: {}", requestURI);
         }
 
         filterChain.doFilter(servletRequest, servletResponse);

@@ -39,7 +39,7 @@ public class TokenProvider implements InitializingBean {
             @Value("${jwt.token-validity-in-seconds}") long tokenValidityInMilliseconds
     ) {
         this.secret = secret;
-        this.tokenValidityInMilliseconds = tokenValidityInMilliseconds;
+        this.tokenValidityInMilliseconds = tokenValidityInMilliseconds * 1000;
     }
 
     // 3. secret 값을 Base64 Decode 해서 Key 변수에 할당

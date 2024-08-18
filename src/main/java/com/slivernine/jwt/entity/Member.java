@@ -17,9 +17,9 @@ import java.util.Set;
 public class Member {
 
     @Id
-    @Column(name = "member_id")
+    @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long memberId;
+    private Long userId;
 
     @Column(name = "username", length = 50, unique = true)
     private String username;
@@ -38,9 +38,9 @@ public class Member {
     @ManyToMany
     @JoinTable(
             name = "member_authority",
-            joinColumns = {@JoinColumn(name = "member_id", referencedColumnName = "member_id")},
+            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "user_id")},
             inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authority_name")}
     )
-    private Set<Authority> authority;
+    private Set<Authority> authorities;
 
 }

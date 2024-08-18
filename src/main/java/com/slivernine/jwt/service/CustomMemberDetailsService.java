@@ -39,7 +39,7 @@ public class CustomMemberDetailsService implements UserDetailsService {
             throw new RuntimeException(username + " -> 활성화되어 있지 않습니다.");
         }
 
-        List<GrantedAuthority> grantedAuthorities = member.getAuthority().stream()
+        List<GrantedAuthority> grantedAuthorities = member.getAuthorities().stream()
                 .map(authority -> new SimpleGrantedAuthority(authority.getAuthorityName()))
                 .collect(Collectors.toList());
 

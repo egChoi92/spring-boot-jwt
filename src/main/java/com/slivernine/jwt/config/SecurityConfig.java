@@ -72,9 +72,9 @@ public class SecurityConfig {
 
                 // HttpServletRequest를 사용하는 요청들에 대한 접근 제한을 설정한다.
                 .authorizeHttpRequests((registry) ->
-                    // 토큰이 없는 상태에서 요청이 들어 오는 API는 인증 없이 접근을 허용한다.
+                    // 토큰이 없는 상태에서 요청이 들어 오는 아래 API는 인증 없이 접근을 허용한다.
                     registry.requestMatchers("/api/hello").permitAll()
-                            .requestMatchers("/api/authentication").permitAll()
+                            .requestMatchers("/api/authenticate").permitAll()
                             .requestMatchers("/api/signup").permitAll()
                             // 나머지 요청들은 모두 인증되어야 한다.
                             .anyRequest().authenticated()
